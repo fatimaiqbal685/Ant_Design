@@ -1,121 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Flex, Card, Avatar, Typography, Rate } from "antd";
+const { Meta } = Card;
+
+const {  Title, Paragraph } = Typography;
+
 
 function App() {
-  const [count, setCount] = useState(0)
+const cards=[
+  {
+    name: "Sarah Johnson",
+    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+    rating: 5,
+    review: "In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers."
+  },
+  {
+    name: "Michael Chen",
+    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+    rating: 5,
+    review: "In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers."
+  },
+  {
+    name: "Emily rodriguez",
+    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    rating: 5,
+    review: "In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers."
+  }
+]
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div style={{textAlign: "center", backgroundColor: "#040405", padding: "100px"}}>
+   
+    <Title style={{color:"white"}} level={2}>Trusted by <span style={{color: "#ef6a1a"}}>Innovative</span> Companies</Title>
 
-      <div className="ticks"></div>
+    <Paragraph style={{color:"gray", fontSize: "14px", marginTop: "10px"}}>
+      Don't just take our word for it. Here's what our customers have to say about Sassland.
+    </Paragraph>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        
+  
+     
+
+      <Flex justify="center" align="center"  gap="medium">
+{cards.map((card, index) => (
+  <Card
+    key={index}
+    style={{ width: 320, height: 260, backgroundColor: "#1e1e1e", borderRadius: "10px", border: "none" }}
+  >
+    <Rate defaultValue={card.rating} style={{ color: "#ef6a1a" }} />
+    <Paragraph style={{color:"white", fontSize: "14px", marginTop: "10px"}}>
+      " {card.review} "
+    </Paragraph>
+    <div style={{display: "flex", gap: "10px", marginTop: "10px"}}>
+         <Avatar src={card.avatar} size={56} />
+  <Title style={{color:"white", marginTop: "10px"}} level={5}>{card.name}</Title>
+    </div>
+  
+  </Card>
+))}
+
+      </Flex>
+    </div>
+
   )
 }
 
